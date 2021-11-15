@@ -7,7 +7,10 @@ using UnityEngine.AI;
 public class Mover : MonoBehaviour
 {
     [SerializeField] Transform target = null;
+    [SerializeField] Camera mainCamera;
+
     NavMeshAgent navMeshAgent = null;
+    Ray lastRay;
 
     void Awake()
     {
@@ -15,6 +18,11 @@ public class Mover : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            lastRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        }
+        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
         navMeshAgent.destination = target.position;
     }
 }
