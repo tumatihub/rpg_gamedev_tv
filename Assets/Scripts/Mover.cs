@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]  
+[RequireComponent(typeof(Animator))]
 public class Mover : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] Camera mainCamera;
 
     NavMeshAgent navMeshAgent;
+    Animator animator;
+
 
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -21,6 +25,14 @@ public class Mover : MonoBehaviour
         {
             MoveToCursor();
         }
+
+        UpdateAnimator();
+    }
+
+    void UpdateAnimator()
+    {
+        Vector3 localVelocity = transform.InverseTransformDirection(navMeshAgent.velocity);
+        animator.SetFloat("forwardSpeed", localVelocity.z);
     }
 
     void MoveToCursor()
