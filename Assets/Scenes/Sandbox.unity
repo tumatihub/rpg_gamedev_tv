@@ -1000,42 +1000,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4023655680009913697, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
   m_PrefabInstance: {fileID: 4801715501596535609}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &953661821
-MonoBehaviour:
+--- !u!95 &953661821
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953661820}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26dcefe7aa7f9540980bcc9162a78aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 372335732}
-  mainCamera: {fileID: 604085985}
---- !u!195 &953661822
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953661820}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 6
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &953661826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2790860759959796166, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
@@ -2073,6 +2056,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 953661821, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 372335732}
+    - target: {fileID: 953661821, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 604085985}
     - target: {fileID: 2790860759959796166, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2083,7 +2074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2790860759959796166, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2790860759959796166, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: m_LocalPosition.z
