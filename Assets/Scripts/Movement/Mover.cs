@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using RPG.Combat;
 using RPG.Core;
 
 namespace RPG.Movement
@@ -10,13 +7,12 @@ namespace RPG.Movement
     [RequireComponent(typeof(NavMeshAgent))]  
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(ActionScheduler))]
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         [SerializeField] Transform target;
 
         NavMeshAgent navMeshAgent;
         Animator animator;
-        Fighter fighter;
         ActionScheduler actionScheduler;
 
 
@@ -24,7 +20,6 @@ namespace RPG.Movement
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            fighter = GetComponent<Fighter>();
             actionScheduler = GetComponent<ActionScheduler>();
         }
         void Update()
@@ -41,7 +36,6 @@ namespace RPG.Movement
         public void StartMovingAction(Vector3 destination)
         {
             actionScheduler.StartAction(this);
-            fighter.Cancel();
             MoveTo(destination);
         }
 
@@ -51,7 +45,7 @@ namespace RPG.Movement
             navMeshAgent.destination = destination;
         }
 
-        public void Stop()
+        public void Cancel()
         {
             navMeshAgent.isStopped = true;
         }

@@ -6,7 +6,8 @@ using RPG.Core;
 namespace RPG.Combat
 {
     [RequireComponent(typeof(ActionScheduler))]
-    public class Fighter : MonoBehaviour
+    [RequireComponent(typeof(Mover))]
+    public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float weaponRange = 2f;
 
@@ -30,7 +31,7 @@ namespace RPG.Combat
             }
             else
             {
-                mover.Stop();
+                mover.Cancel();
             }
         }
 
