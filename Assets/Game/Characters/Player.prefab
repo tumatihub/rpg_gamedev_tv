@@ -157,6 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f628d07e5c7a4a4db4d6bec1d6373c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponRange: 2
+  timeBetweenAttacks: 1
+  weaponDamage: 5
 --- !u!1001 &1430606991368267713
 PrefabInstance:
   m_ObjectHideFlags: 0
