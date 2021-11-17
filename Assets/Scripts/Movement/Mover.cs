@@ -3,34 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]  
-[RequireComponent(typeof(Animator))]
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-    [SerializeField] Transform target;
-
-    NavMeshAgent navMeshAgent;
-    Animator animator;
-
-
-    void Awake()
+    [RequireComponent(typeof(NavMeshAgent))]  
+    [RequireComponent(typeof(Animator))]
+    public class Mover : MonoBehaviour
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-    }
-    void Update()
-    {
-        UpdateAnimator();
-    }
+        [SerializeField] Transform target;
 
-    void UpdateAnimator()
-    {
-        Vector3 localVelocity = transform.InverseTransformDirection(navMeshAgent.velocity);
-        animator.SetFloat("forwardSpeed", localVelocity.z);
-    }
+        NavMeshAgent navMeshAgent;
+        Animator animator;
 
-    public void MoveTo(Vector3 destination)
-    {
-        navMeshAgent.destination = destination;
+
+        void Awake()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            animator = GetComponent<Animator>();
+        }
+        void Update()
+        {
+            UpdateAnimator();
+        }
+
+        void UpdateAnimator()
+        {
+            Vector3 localVelocity = transform.InverseTransformDirection(navMeshAgent.velocity);
+            animator.SetFloat("forwardSpeed", localVelocity.z);
+        }
+
+        public void MoveTo(Vector3 destination)
+        {
+            navMeshAgent.destination = destination;
+        }
     }
 }
