@@ -7,6 +7,7 @@ namespace RPG.Combat
 {
     [RequireComponent(typeof(ActionScheduler))]
     [RequireComponent(typeof(Mover))]
+    [RequireComponent(typeof(Animator))]
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float weaponRange = 2f;
@@ -14,11 +15,13 @@ namespace RPG.Combat
         Transform target;
         Mover mover;
         ActionScheduler actionScheduler;
+        Animator animator;
 
         void Awake()
         {
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -32,7 +35,13 @@ namespace RPG.Combat
             else
             {
                 mover.Cancel();
+                AttackBehaviour();
             }
+        }
+
+        private void AttackBehaviour()
+        {
+            animator.SetTrigger("attack");
         }
 
         private bool IsInRange()
@@ -49,6 +58,12 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
+        }
+
+        // Animation Event
+        void Hit()
+        {
+
         }
     }
 }
