@@ -33,11 +33,13 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget combatTarget = hit.collider.GetComponent<CombatTarget>();
-                if (!fighter.CanAttack(combatTarget)) continue;
+                if (combatTarget == null) continue;
+
+                if (!fighter.CanAttack(combatTarget.gameObject)) continue;
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    fighter.Attack(combatTarget);
+                    fighter.Attack(combatTarget.gameObject);
                 }
                 return true;
             }
