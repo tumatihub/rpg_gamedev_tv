@@ -3,14 +3,36 @@ using System.Collections;
 
 namespace RPG.Combat
 {
+    [RequireComponent(typeof(Animator))]
     public class Health : MonoBehaviour
     {
-        [SerializeField] float health = 100f;
+        [SerializeField] float healthPoints = 100f;
+
+        bool isDead = false;
+        
+        Animator animator;
+
+        void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
 
         public void TakeDamage(float damage)
         {
-            health = Mathf.Max(0, health - damage);
-            print(health);
+            healthPoints = Mathf.Max(0, healthPoints - damage);
+
+            if (healthPoints == 0)
+            {
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            if (isDead) return;
+
+            isDead = true;
+            animator.SetTrigger("die");
         }
     }
 }
