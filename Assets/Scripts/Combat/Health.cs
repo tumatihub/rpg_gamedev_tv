@@ -9,7 +9,8 @@ namespace RPG.Combat
         [SerializeField] float healthPoints = 100f;
 
         bool isDead = false;
-        
+        public bool IsDead => isDead;
+
         Animator animator;
 
         void Awake()
