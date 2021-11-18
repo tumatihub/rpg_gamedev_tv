@@ -3,24 +3,31 @@ using System.Collections;
 using System;
 using RPG.Combat;
 using RPG.Core;
+using RPG.Movement;
 
 namespace RPG.Control
 {
     [RequireComponent(typeof(Fighter))]
     [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(Mover))]
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
 
+        Vector3 guardPosition;
+
         Fighter fighter;
         GameObject player;
         Health health;
+        Mover mover;
 
         void Awake()
         {
             fighter = GetComponent<Fighter>();
             player = GameObject.FindGameObjectWithTag("Player");
             health = GetComponent<Health>();
+            guardPosition = transform.position;
+            mover = GetComponent<Mover>();
         }
 
         void Update()
@@ -33,7 +40,7 @@ namespace RPG.Control
             }
             else
             {
-                fighter.Cancel();
+                mover.StartMovingAction(guardPosition);
             }
         }
 
