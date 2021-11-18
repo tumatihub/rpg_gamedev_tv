@@ -47,18 +47,24 @@ namespace RPG.Combat
             }
         }
 
-        private void AttackBehaviour()
+        void AttackBehaviour()
         {
             transform.LookAt(target.transform);
             
             if (timeSinceLastAttack >= timeBetweenAttacks)
             {
-                animator.SetTrigger("attack");
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
         }
 
-        private bool IsInRange()
+        void TriggerAttack()
+        {
+            animator.ResetTrigger("stopAttack");
+            animator.SetTrigger("attack");
+        }
+
+        bool IsInRange()
         {
             return Vector3.Distance(target.transform.position, transform.position) <= weaponRange;
         }
@@ -78,8 +84,14 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            animator.SetTrigger("stopAttack");
+            StopAttack();
             target = null;
+        }
+
+        void StopAttack()
+        {
+            animator.ResetTrigger("attack");
+            animator.SetTrigger("stopAttack");
         }
 
         // Animation Event
