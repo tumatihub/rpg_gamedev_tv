@@ -24,13 +24,13 @@ namespace RPG.Control
             return (waypointIndex == 0) ? Color.red : Color.white;
         }
 
-        int GetNextWaypointIndex(int currentIndex)
+        public int GetNextWaypointIndex(int currentIndex)
         {
             int nextIndex = currentIndex + 1;
             return (nextIndex >= transform.childCount) ? 0 : nextIndex;
         }
 
-        Vector3 GetWaypoint(int childIndex)
+        public Vector3 GetWaypoint(int childIndex)
         {
             return transform.GetChild(childIndex).transform.position;
         }

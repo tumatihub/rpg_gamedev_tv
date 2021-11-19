@@ -312,6 +312,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 413494, guid: c2849fd453abd0445a702a035f04ac60, type: 3}
   m_PrefabInstance: {fileID: 75996091}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &189729315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8421520609692694447, guid: 1ba46a37bf16d5a4f8d06aa743311f93, type: 3}
+  m_PrefabInstance: {fileID: 8355436950977127122}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb46d973598502348a97b3e2d5f92cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &237153801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,6 +2034,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8466831779024812215, guid: e62fd72ccbe037d4e93a49bb9a499b09, type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 189729315}
     - target: {fileID: 8714464268554217543, guid: e62fd72ccbe037d4e93a49bb9a499b09, type: 3}
       propertyPath: m_Name
       value: Enemy
