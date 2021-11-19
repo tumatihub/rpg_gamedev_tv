@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace RPG.Control
 {
@@ -11,8 +12,27 @@ namespace RPG.Control
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                Gizmos.DrawSphere(transform.GetChild(i).transform.position, waypointGizmoRadius);
+                int j = GetNextWaypointIndex(i);
+                Gizmos.color = GetWaypointColor(i);
+                Gizmos.DrawSphere(GetWaypoint(i), waypointGizmoRadius);
+                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(j));
             }
+        }
+
+        Color GetWaypointColor(int waypointIndex)
+        {
+            return (waypointIndex == 0) ? Color.red : Color.white;
+        }
+
+        int GetNextWaypointIndex(int currentIndex)
+        {
+            int nextIndex = currentIndex + 1;
+            return (nextIndex >= transform.childCount) ? 0 : nextIndex;
+        }
+
+        Vector3 GetWaypoint(int childIndex)
+        {
+            return transform.GetChild(childIndex).transform.position;
         }
     }
 }
