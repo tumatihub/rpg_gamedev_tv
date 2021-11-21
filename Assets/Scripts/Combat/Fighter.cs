@@ -86,6 +86,7 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
+            mover.Cancel();
         }
 
         void StopAttack()
