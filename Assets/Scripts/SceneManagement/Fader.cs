@@ -29,5 +29,10 @@ namespace RPG.SceneManagement
                 yield return null;
             }
         }
+
+        public void FadeOutImmediate()
+        {
+            canvasGroup.alpha = 1;
+        }
     }
 }
