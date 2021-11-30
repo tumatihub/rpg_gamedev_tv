@@ -113,7 +113,20 @@ namespace RPG.Combat
         {
             if (target == null) return;
 
-            target.TakeDamage(currentWeapon.Damage);
+            if (currentWeapon.HasProjectile)
+            {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            }
+            else
+            {
+                target.TakeDamage(currentWeapon.Damage);
+            }
+        }
+
+        // Animation Event
+        void Shoot()
+        {
+            Hit();
         }
     }
 }
