@@ -4174,6 +4174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 3764992699902852241, guid: a201022477da321469e72af44c8a4c4c, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eb852ad93007f742a7f254aaf91d98c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a201022477da321469e72af44c8a4c4c, type: 3}
 --- !u!4 &3543872848759895087
