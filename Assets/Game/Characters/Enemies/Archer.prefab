@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 9eb852ad93007f742a7f254aaf91d98c, type: 2}
+    - target: {fileID: 4015835495424681853, guid: e62fd72ccbe037d4e93a49bb9a499b09, type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow Red
+      objectReference: {fileID: 0}
     - target: {fileID: 7602704552508364000, guid: e62fd72ccbe037d4e93a49bb9a499b09, type: 3}
       propertyPath: m_RootOrder
       value: 0
