@@ -27,20 +27,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
---- !u!114 &9066053805520243305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820557297020130390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53994138df72d2b41a54f0adf97abf57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingLevel: 1
-  characterClass: 0
 --- !u!1001 &4177463452798050860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 4023655680009913697, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023920266665668651, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
+      propertyPath: characterClass
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7113311260575592297, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: healthPoints

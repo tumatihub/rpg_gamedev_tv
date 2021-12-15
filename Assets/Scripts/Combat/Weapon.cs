@@ -1,8 +1,5 @@
-using RPG.Core;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -14,7 +11,7 @@ namespace RPG.Combat
         [SerializeField] float range = 2f;
         [SerializeField] float damage = 5f;
         [SerializeField] bool isRightHanded = true;
-        [SerializeField] Projectile projectile;
+        [SerializeField] Projectile projectile = null;
 
         const string weaponName = "Weapon";
 

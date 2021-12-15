@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using RPG.Movement;
-using System;
 using RPG.Combat;
-using RPG.Core;
+using RPG.Attributes;
 
 namespace RPG.Control
 {
@@ -12,7 +10,7 @@ namespace RPG.Control
     [RequireComponent(typeof(Health))]
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] Camera mainCamera;
+        [SerializeField] Camera mainCamera = null;
 
         Mover mover;
         Fighter fighter;

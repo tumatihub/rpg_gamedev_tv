@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -10,7 +7,7 @@ namespace RPG.Combat
     {
         [SerializeField] float speed = 1f;
         [SerializeField] bool isHoming = true;
-        [SerializeField] GameObject hitEffect;
+        [SerializeField] GameObject hitEffect = null;
         [SerializeField] float maxLifeTime = 10f;
         [SerializeField] GameObject[] destroyOnHit;
         [SerializeField] float lifeAfterImpact = 2f;

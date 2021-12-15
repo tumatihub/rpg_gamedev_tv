@@ -7,7 +7,7 @@ namespace RPG.Core
     [RequireComponent(typeof(ParticleSystem))]
     public class DestroyAfterEffect : MonoBehaviour
     {
-        ParticleSystem particleSystem;
+        ParticleSystem particleSystem = null;
 
         void Awake()
         {

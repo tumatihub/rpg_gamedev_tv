@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RPG.Saving;
+using RPG.Stats;
+using RPG.Core;
 
-namespace RPG.Core
+namespace RPG.Attributes
 {
+    [RequireComponent(typeof(BaseStats))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(ActionScheduler))]
     public class Health : MonoBehaviour, ISaveable
@@ -14,10 +17,17 @@ namespace RPG.Core
         public bool IsDead => isDead;
 
         Animator animator;
+        BaseStats baseStats;
 
         void Awake()
         {
             animator = GetComponent<Animator>();
+            baseStats = GetComponent<BaseStats>();
+        }
+
+        void Start()
+        {
+            healthPoints = baseStats.GetHealth();
         }
 
         public void TakeDamage(float damage)
