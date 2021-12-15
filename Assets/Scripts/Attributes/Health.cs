@@ -40,6 +40,11 @@ namespace RPG.Attributes
             }
         }
 
+        public float GetPercentage()
+        {
+            return 100 * (healthPoints / baseStats.GetHealth());
+        }
+
         private void Die()
         {
             if (isDead) return;
