@@ -13,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] float lifeAfterImpact = 2f;
         
         Health target;
+        GameObject instigator;
         float damage = 0;
 
         void Start()
@@ -37,7 +38,7 @@ namespace RPG.Combat
             if (target == this.target)
             {
                 if (target.IsDead) return;
-                target.TakeDamage(damage);
+                target.TakeDamage(instigator, damage);
 
                 speed = 0;
 
@@ -55,10 +56,11 @@ namespace RPG.Combat
             }
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
 
             Destroy(gameObject, maxLifeTime);
         }
