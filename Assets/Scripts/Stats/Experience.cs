@@ -11,7 +11,6 @@ namespace RPG.Stats
         public void GainExperience(float experience)
         {
             experiencePoints += experience;
-            Debug.Log(GetComponent<BaseStats>().GetLevel());
         }
 
         public object CaptureState()

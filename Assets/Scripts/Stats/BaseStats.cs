@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace RPG.Stats
 {
-    [RequireComponent(typeof(Experience))]
     public class BaseStats : MonoBehaviour
     {
         [Range(1,99)]
@@ -17,12 +16,6 @@ namespace RPG.Stats
         void Awake()
         {
             experience = GetComponent<Experience>();
-        }
-
-        void Update()
-        {
-            if (gameObject.tag == "Player")
-                print(GetLevel());
         }
 
         public float GetStat(Stat stat)
