@@ -12,7 +12,7 @@ namespace RPG.Attributes
     [RequireComponent(typeof(ActionScheduler))]
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] float healthPoints = 100f;
+        float healthPoints = -1f;
 
         bool isDead = false;
         public bool IsDead => isDead;
@@ -28,7 +28,8 @@ namespace RPG.Attributes
 
         void Start()
         {
-            healthPoints = baseStats.GetStat(Stat.Health);
+            if (healthPoints < 0)
+                healthPoints = baseStats.GetStat(Stat.Health);
         }
 
         public void TakeDamage(GameObject instigator, float damage)
