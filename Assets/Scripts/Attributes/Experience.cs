@@ -6,6 +6,7 @@ namespace RPG.Attributes
     public class Experience : MonoBehaviour, ISaveable
     {
         [SerializeField] float experiencePoints = 0;
+        public float ExperiencePoints => experiencePoints;
 
         public void GainExperience(float experience)
         {
