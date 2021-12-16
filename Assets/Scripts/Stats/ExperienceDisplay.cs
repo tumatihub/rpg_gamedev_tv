@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RPG.Attributes
+namespace RPG.Stats
 {
     [RequireComponent(typeof(Text))]
     public class ExperienceDisplay : MonoBehaviour

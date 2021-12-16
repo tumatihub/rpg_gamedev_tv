@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using RPG.Saving;
 
-namespace RPG.Attributes
+namespace RPG.Stats
 {
     public class Experience : MonoBehaviour, ISaveable
     {
@@ -11,6 +11,7 @@ namespace RPG.Attributes
         public void GainExperience(float experience)
         {
             experiencePoints += experience;
+            Debug.Log(GetComponent<BaseStats>().GetLevel());
         }
 
         public object CaptureState()
