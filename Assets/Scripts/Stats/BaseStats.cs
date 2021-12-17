@@ -23,9 +23,13 @@ namespace RPG.Stats
         void Start()
         {
             currentLevel = CalculateLevel();
+            if (experience != null)
+            {
+                experience.onExperienceGained += UpdateLevel;
+            }
         }
 
-        void Update()
+        void UpdateLevel()
         {
             int newLevel = CalculateLevel();
             if (newLevel > currentLevel)
@@ -42,6 +46,10 @@ namespace RPG.Stats
 
         public int GetLevel()
         {
+            if (currentLevel < 1)
+            {
+                currentLevel = CalculateLevel();
+            }
             return currentLevel;
         }
 
