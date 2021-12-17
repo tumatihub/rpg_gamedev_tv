@@ -26,7 +26,7 @@ namespace RPG.Combat
                 return;
             }
 
-            textDisplay.text = $"{health.GetPercentage():0} %";
+            textDisplay.text = $"{health.HealthPoints:0}/{health.GetMaxHealthPoints():0}";
         }
     }
 }

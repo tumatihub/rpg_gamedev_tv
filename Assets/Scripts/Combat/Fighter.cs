@@ -4,9 +4,11 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
+    [RequireComponent(typeof(BaseStats))]
     [RequireComponent(typeof(ActionScheduler))]
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Animator))]
@@ -24,12 +26,14 @@ namespace RPG.Combat
         Mover mover;
         ActionScheduler actionScheduler;
         Animator animator;
+        BaseStats baseStats;
 
         void Awake()
         {
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
             animator = GetComponent<Animator>();
+            baseStats = GetComponent<BaseStats>();
         }
 
         void Start()
@@ -123,13 +127,15 @@ namespace RPG.Combat
         {
             if (target == null) return;
 
+            float damage = baseStats.GetStat(Stat.Damage);
+
             if (currentWeapon.HasProjectile)
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeapon.Damage);
+                target.TakeDamage(gameObject, damage);
             }
         }
 

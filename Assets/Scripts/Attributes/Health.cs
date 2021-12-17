@@ -16,6 +16,7 @@ namespace RPG.Attributes
 
         bool isDead = false;
         public bool IsDead => isDead;
+        public float HealthPoints => healthPoints;
 
         Animator animator;
         BaseStats baseStats;
@@ -35,6 +36,8 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage)
         {
+            print(gameObject.name + " took damage: " + damage);
+
             healthPoints = Mathf.Max(0, healthPoints - damage);
 
             if (healthPoints == 0)
@@ -47,6 +50,11 @@ namespace RPG.Attributes
         public float GetPercentage()
         {
             return 100 * (healthPoints / baseStats.GetStat(Stat.Health));
+        }
+
+        public float GetMaxHealthPoints()
+        {
+            return baseStats.GetStat(Stat.Health);
         }
 
         private void Die()
