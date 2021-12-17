@@ -5,6 +5,7 @@ using RPG.Core;
 using RPG.Saving;
 using RPG.Attributes;
 using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
@@ -12,7 +13,7 @@ namespace RPG.Combat
     [RequireComponent(typeof(ActionScheduler))]
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Animator))]
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -121,6 +122,14 @@ namespace RPG.Combat
             animator.ResetTrigger("attack");
             animator.SetTrigger("stopAttack");
         }
+        
+        public IEnumerable<float> GetAdditiveModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.Damage;
+            }
+        }
 
         // Animation Event
         void Hit()
@@ -156,5 +165,6 @@ namespace RPG.Combat
             Weapon weapon = Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
         }
+
     }
 }

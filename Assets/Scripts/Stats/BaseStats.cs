@@ -44,14 +44,9 @@ namespace RPG.Stats
             }
         }
 
-        void LevelUpEffect()
-        {
-            Instantiate(levelUpParticleEffect, transform);
-        }
-
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, GetLevel());
+            return progression.GetStat(stat, characterClass, GetLevel()) + GetAdditiveModifiers(stat);
         }
 
         public int GetLevel()
@@ -63,7 +58,7 @@ namespace RPG.Stats
             return currentLevel;
         }
 
-        public int CalculateLevel()
+        int CalculateLevel()
         {
             if (experience == null) return startingLevel;
 
@@ -80,6 +75,24 @@ namespace RPG.Stats
             }
 
             return penultimateLevel + 1;
+        }
+
+        void LevelUpEffect()
+        {
+            Instantiate(levelUpParticleEffect, transform);
+        }
+
+        float GetAdditiveModifiers(Stat stat)
+        {
+            float total = 0;
+            foreach(IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in modifierProvider.GetAdditiveModifiers(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
         }
     }
 }
