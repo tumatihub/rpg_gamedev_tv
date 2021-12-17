@@ -24,6 +24,7 @@ namespace RPG.Attributes
         {
             animator = GetComponent<Animator>();
             baseStats = GetComponent<BaseStats>();
+            baseStats.onLevelUp += RegenerateHealth;
         }
 
         void Start()
@@ -63,6 +64,11 @@ namespace RPG.Attributes
             if (experience == null) return;
 
             experience.GainExperience(baseStats.GetStat(Stat.ExperienceReward));
+        }
+
+        void RegenerateHealth()
+        {
+            healthPoints = baseStats.GetStat(Stat.Health);
         }
 
         public object CaptureState()
