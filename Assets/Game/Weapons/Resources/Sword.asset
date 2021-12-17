@@ -16,3 +16,6 @@ MonoBehaviour:
   animatorOverride: {fileID: 22100000, guid: 2a1990e718a15c849a56d5a94a9ad5ca, type: 2}
   range: 2
   damage: 10
+  percentageBonus: 10
+  isRightHanded: 1
+  projectile: {fileID: 0}

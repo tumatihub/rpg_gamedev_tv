@@ -12,6 +12,7 @@ namespace RPG.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression;
         [SerializeField] GameObject levelUpParticleEffect = null;
+        [SerializeField] bool shouldUseModifiers = false;
  
         int currentLevel = 0;
 
@@ -46,7 +47,13 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, GetLevel()) + GetAdditiveModifiers(stat);
+            return (GetBaseStat(stat) + GetAdditiveModifiers(stat)) * (1 + GetPercentageModifiers(stat)/100);
+        }
+
+
+        float GetBaseStat(Stat stat)
+        {
+            return progression.GetStat(stat, characterClass, GetLevel());
         }
 
         public int GetLevel()
@@ -84,10 +91,27 @@ namespace RPG.Stats
 
         float GetAdditiveModifiers(Stat stat)
         {
+            if (!shouldUseModifiers) return 0;
+
             float total = 0;
             foreach(IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
             {
                 foreach (float modifier in modifierProvider.GetAdditiveModifiers(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
+        }
+
+        float GetPercentageModifiers(Stat stat)
+        {
+            if (!shouldUseModifiers) return 0;
+
+            float total = 0;
+            foreach (IModifierProvider modifierProvider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in modifierProvider.GetPercentageModifiers(stat))
                 {
                     total += modifier;
                 }
