@@ -5,6 +5,7 @@ using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
 using RPG.Attributes;
+using GameDevTV.Utils;
 
 namespace RPG.Control
 {
@@ -22,7 +23,7 @@ namespace RPG.Control
         [Range(0,1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
 
-        Vector3 guardPosition;
+        LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         int currentWaypointIndex = 0;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
@@ -38,9 +39,19 @@ namespace RPG.Control
             fighter = GetComponent<Fighter>();
             player = GameObject.FindGameObjectWithTag("Player");
             health = GetComponent<Health>();
-            guardPosition = transform.position;
+            guardPosition = new LazyValue<Vector3>(GetGuardPosition);
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+        }
+
+        Vector3 GetGuardPosition()
+        {
+            return transform.position;
+        }
+
+        void Start()
+        {
+            guardPosition.ForceInit();
         }
 
         void Update()
@@ -71,7 +82,7 @@ namespace RPG.Control
 
         void PatrolBehaviour()
         {
-            Vector3 nextPosition = guardPosition;
+            Vector3 nextPosition = guardPosition.value;
 
             if (patrolPath != null)
             {
