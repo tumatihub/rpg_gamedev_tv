@@ -25,7 +25,16 @@ namespace RPG.Attributes
         {
             animator = GetComponent<Animator>();
             baseStats = GetComponent<BaseStats>();
+        }
+
+        void OnEnable()
+        {
             baseStats.onLevelUp += RegenerateHealth;
+        }
+
+        void OnDisable()
+        {
+            baseStats.onLevelUp -= RegenerateHealth;
         }
 
         void Start()
