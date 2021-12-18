@@ -12,14 +12,6 @@ namespace RPG.Control
     [RequireComponent(typeof(Health))]
     public class PlayerController : MonoBehaviour
     {
-        enum CursorType
-        {
-            None,
-            Movement,
-            Combat,
-            UI
-        }
-
         [System.Serializable]
         struct CursorMapping
         {
@@ -77,7 +69,7 @@ namespace RPG.Control
                 {
                     if (raycastable.HandleRaycastable(this))
                     {
-                        SetCursor(CursorType.Combat);
+                        SetCursor(raycastable.GetCursorType());
                         return true;
                     }
                 }
