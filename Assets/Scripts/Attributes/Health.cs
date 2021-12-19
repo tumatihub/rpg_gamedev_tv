@@ -14,7 +14,7 @@ namespace RPG.Attributes
     [RequireComponent(typeof(ActionScheduler))]
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] UnityEvent takeDamage;
+        [SerializeField] UnityEvent<float> takeDamage;
 
         LazyValue<float> healthPoints;
 
@@ -55,15 +55,12 @@ namespace RPG.Attributes
         public void TakeDamage(GameObject instigator, float damage)
         {
             healthPoints.value = Mathf.Max(0, healthPoints.value - damage);
+            takeDamage.Invoke(damage);
 
             if (healthPoints.value == 0)
             {
                 Die();
                 AwardExperience(instigator);
-            }
-            else
-            {
-                takeDamage.Invoke();
             }
         }
 

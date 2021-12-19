@@ -4792,10 +4792,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
-    - target: {fileID: 3317597686567999907, guid: a201022477da321469e72af44c8a4c4c, type: 3}
-      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 3764992699902852241, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: defaultWeaponName
       value: Sword
