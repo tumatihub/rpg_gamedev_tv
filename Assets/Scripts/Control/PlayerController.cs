@@ -24,6 +24,7 @@ namespace RPG.Control
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] Camera mainCamera = null;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
+        [SerializeField] float maxNavPathLength = 40f;
 
         Mover mover;
         Fighter fighter;
@@ -124,7 +125,24 @@ namespace RPG.Control
             );
             if (!hastCastToNavMesh) return false;
             target = navMeshHit.position;
+
+            NavMeshPath path = new NavMeshPath();
+            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+            if (!hasPath) return false;
+            if (path.status != NavMeshPathStatus.PathComplete) return false;
+            if (GetPathLength(path) > maxNavPathLength) return false;
             return true;
+        }
+
+        float GetPathLength(NavMeshPath path)
+        {
+            float totalDistance = 0f;
+            if (path.corners.Length < 2) return totalDistance;
+            for (int i = 0; i < path.corners.Length - 1; i++)
+            {
+                totalDistance += Vector3.Distance(path.corners[i], path.corners[i + 1]);
+            }
+            return totalDistance;
         }
 
         void SetCursor(CursorType type)
