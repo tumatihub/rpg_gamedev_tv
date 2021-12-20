@@ -9,7 +9,7 @@ namespace RPG.Combat
     [RequireComponent(typeof(Collider))]
     public class WeaponPickup : MonoBehaviour, IRaycastable
     {
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] WeaponConfig weapon = null;
         [SerializeField] float respawnTime = 5f;
 
         void OnTriggerEnter(Collider other)
