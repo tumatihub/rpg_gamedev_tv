@@ -1,3 +1,4 @@
+using RPG.Attributes;
 using RPG.Control;
 using System;
 using System.Collections;
@@ -11,19 +12,28 @@ namespace RPG.Combat
     {
         [SerializeField] WeaponConfig weapon = null;
         [SerializeField] float respawnTime = 5f;
+        [SerializeField] float healthToRestore = 0;
 
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                Fighter fighter = other.GetComponent<Fighter>();
-                Pickup(fighter);
+                Pickup(other.gameObject);
             }
         }
 
-        void Pickup(Fighter fighter)
+        void Pickup(GameObject subject)
         {
-            fighter.EquipWeapon(weapon);
+            if (weapon != null)
+            {
+                Fighter fighter = subject.GetComponent<Fighter>();
+                fighter.EquipWeapon(weapon);
+            }
+            if (healthToRestore > 0)
+            {
+                Health health = subject.GetComponent<Health>();
+                health.Heal(healthToRestore);
+            }
             StartCoroutine(HideForSeconds(respawnTime));
         }
 
@@ -55,8 +65,7 @@ namespace RPG.Combat
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Fighter fighter = callingController.GetComponent<Fighter>();
-                Pickup(fighter);
+                Pickup(callingController.gameObject);
             }
             return true;
         }
