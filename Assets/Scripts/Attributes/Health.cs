@@ -92,6 +92,7 @@ namespace RPG.Attributes
 
             isDead = true;
             animator.SetTrigger("die");
+            GetComponent<Collider>().enabled = false;
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
