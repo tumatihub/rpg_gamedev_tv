@@ -61,7 +61,7 @@ namespace RPG.Combat
             }
         }
 
-        public bool HandleRaycastable(PlayerController callingController)
+        public bool HandleRaycast(PlayerController callingController)
         {
             if (Input.GetMouseButtonDown(0))
             {

@@ -70,7 +70,7 @@ namespace RPG.Control
                 IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
                 foreach (IRaycastable raycastable in raycastables)
                 {
-                    if (raycastable.HandleRaycastable(this))
+                    if (raycastable.HandleRaycast(this))
                     {
                         SetCursor(raycastable.GetCursorType());
                         return true;
