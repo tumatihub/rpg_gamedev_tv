@@ -7,9 +7,12 @@ using RPG.Attributes;
 using RPG.Stats;
 using System.Collections.Generic;
 using GameDevTV.Utils;
+using GameDevTV.Inventories;
+using System;
 
 namespace RPG.Combat
 {
+    [RequireComponent(typeof(Equipment))]
     [RequireComponent(typeof(BaseStats))]
     [RequireComponent(typeof(ActionScheduler))]
     [RequireComponent(typeof(Mover))]
@@ -25,6 +28,7 @@ namespace RPG.Combat
         float timeSinceLastAttack = Mathf.Infinity;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
+        Equipment equipment;
 
         Mover mover;
         ActionScheduler actionScheduler;
@@ -39,6 +43,11 @@ namespace RPG.Combat
             baseStats = GetComponent<BaseStats>();
             currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
+            equipment = GetComponent<Equipment>();
+            if (equipment)
+            {
+                equipment.equipmentUpdated += UpdateWeapon;
+            }
         }
 
         Weapon SetupDefaultWeapon()
@@ -74,6 +83,19 @@ namespace RPG.Combat
         {
             currentWeaponConfig = weapon;
             currentWeapon.value = AttachWeapon(weapon);
+        }
+
+        void UpdateWeapon()
+        {
+            WeaponConfig weapon = equipment.GetItemInSlot(EquipLocation.Weapon) as WeaponConfig;
+            if (weapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
+            else
+            {
+                EquipWeapon(weapon);
+            }
         }
 
         Weapon AttachWeapon(WeaponConfig weapon)
