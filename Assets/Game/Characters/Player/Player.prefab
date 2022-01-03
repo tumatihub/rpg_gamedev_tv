@@ -70,6 +70,18 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   maxNavMeshProjectionDistance: 1
   raycastRadius: 0.1
+--- !u!114 &3487669981484411375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820557297020130390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a78a8156119842b3ada9e3f571025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4620001699995963039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 16
---- !u!114 &3487669981484411375
+--- !u!114 &3575859990140682798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +104,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5820557297020130390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4a78a8156119842b3ada9e3f571025, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a69e51e8e64b0745b70c4d8308c639f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scatterDistance: 2
 --- !u!1001 &4177463452798050860
 PrefabInstance:
   m_ObjectHideFlags: 0
