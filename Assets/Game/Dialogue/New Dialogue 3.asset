@@ -15,10 +15,20 @@ MonoBehaviour:
   nodes:
   - uniqueID: a62065df-76ec-4c56-8983-020989274da6
     text: valid
-    children: []
+    children:
+    - 340f617f-68b4-4c16-8a31-8a9ddbb9feac
     rect:
       serializedVersion: 2
       x: 21.449997
+      y: 16.699997
+      width: 200
+      height: 100
+  - uniqueID: 340f617f-68b4-4c16-8a31-8a9ddbb9feac
+    text: 
+    children: []
+    rect:
+      serializedVersion: 2
+      x: 231.45
       y: 16.699997
       width: 200
       height: 100
