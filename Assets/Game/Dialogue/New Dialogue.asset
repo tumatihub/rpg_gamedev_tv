@@ -19,8 +19,8 @@ MonoBehaviour:
     - b
     rect:
       serializedVersion: 2
-      x: 538
-      y: 103
+      x: 25
+      y: 14
       width: 200
       height: 100
   - uniqueID: b
@@ -28,7 +28,7 @@ MonoBehaviour:
     children: []
     rect:
       serializedVersion: 2
-      x: 10
-      y: 10
+      x: 291
+      y: 11
       width: 200
       height: 100
