@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -8,13 +9,15 @@ namespace RPG.Dialogue.Editor
 {
     public class DialogueEditor : EditorWindow
     {
+        Dialogue selectedDialogue = null;
+
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
         {
             GetWindow(typeof(DialogueEditor), false, "Dialogue Editor", true);
         }
 
-        [OnOpenAssetAttribute(1)]
+        [OnOpenAsset(1)]
         public static bool OnOpenAsset(int instanceID, int line)
         {
             Dialogue dialogue = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;
@@ -26,11 +29,31 @@ namespace RPG.Dialogue.Editor
             return false;
         }
 
+        void OnEnable()
+        {
+            Selection.selectionChanged += OnSelectionChanged;
+        }
+
+        void OnSelectionChanged()
+        {
+            Dialogue dialogue = Selection.activeObject as Dialogue;
+            if (dialogue != null)
+            {
+                selectedDialogue = dialogue;
+                Repaint();
+            }
+        }
+
         void OnGUI()
         {
-            EditorGUILayout.LabelField("Apple");
-            EditorGUILayout.LabelField("Orange");
-            EditorGUILayout.LabelField("Pear");
+            if (selectedDialogue == null)
+            {
+                EditorGUILayout.LabelField("No Dialogue Selected");
+            }
+            else
+            {
+                EditorGUILayout.LabelField(selectedDialogue.name);
+            }
         }
     }
 }
