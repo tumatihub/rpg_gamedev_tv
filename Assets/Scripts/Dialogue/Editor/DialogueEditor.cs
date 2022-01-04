@@ -63,7 +63,12 @@ namespace RPG.Dialogue.Editor
                 ProcessEvents();
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    OnGUINode(node);
+                    DrawConnections(node);
+                }
+
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    DrawNode(node);
                 }
             }
         }
@@ -90,7 +95,7 @@ namespace RPG.Dialogue.Editor
             }
         }
 
-        void OnGUINode(DialogueNode node)
+        void DrawNode(DialogueNode node)
         {
             GUILayout.BeginArea(node.rect, nodeStyle);
             EditorGUI.BeginChangeCheck();
@@ -106,12 +111,26 @@ namespace RPG.Dialogue.Editor
                 node.text = newText;
             }
 
+            GUILayout.EndArea();
+        }
+
+        void DrawConnections(DialogueNode node)
+        {
+            Vector3 startPosition = new Vector2(
+                node.rect.xMax,
+                node.rect.center.y
+            );
             foreach (DialogueNode childNode in selectedDialogue.GetAllChildren(node))
             {
-                EditorGUILayout.LabelField(childNode.text);
-            }
+                Vector3 endPosition = new Vector2(
+                    childNode.rect.xMin,
+                    childNode.rect.center.y
+                );
 
-            GUILayout.EndArea();
+                float bezierOffset = Mathf.Abs(childNode.rect.xMin - node.rect.xMax)/2f;
+
+                Handles.DrawBezier(startPosition, endPosition, startPosition + (Vector3.right * bezierOffset), endPosition + (Vector3.left * bezierOffset), Color.white, null, 4f);
+            }
         }
 
         DialogueNode GetNodeAtPoint(Vector2 point)
