@@ -16,6 +16,9 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] DialogueNode creatingNode = null;
         [NonSerialized] DialogueNode deletingNode = null;
         [NonSerialized] DialogueNode linkingParentNode = null;
+        Vector2 scrollPosition;
+        [NonSerialized] float xMaxWindow;
+        [NonSerialized] float yMaxWindow;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
@@ -64,6 +67,11 @@ namespace RPG.Dialogue.Editor
             else
             {
                 ProcessEvents();
+
+                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+
+                GUILayoutUtility.GetRect(xMaxWindow, yMaxWindow);
+
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
                     DrawConnections(node);
@@ -73,6 +81,8 @@ namespace RPG.Dialogue.Editor
                 {
                     DrawNode(node);
                 }
+
+                EditorGUILayout.EndScrollView();
 
                 if (creatingNode != null)
                 {
@@ -94,7 +104,7 @@ namespace RPG.Dialogue.Editor
         {
             if (Event.current.type == EventType.MouseDown && draggingNode == null)
             {
-                draggingNode = GetNodeAtPoint(Event.current.mousePosition);
+                draggingNode = GetNodeAtPoint(Event.current.mousePosition + scrollPosition);
                 if (draggingNode != null)
                 {
                     draggingOffset = draggingNode.rect.position - Event.current.mousePosition;
@@ -104,12 +114,19 @@ namespace RPG.Dialogue.Editor
             {
                 Undo.RecordObject(selectedDialogue, "Move Dialogue Node");
                 draggingNode.rect.position = Event.current.mousePosition + draggingOffset;
+                UpdateScrollSize(draggingNode.rect.xMax, draggingNode.rect.yMax);
                 GUI.changed = true;
             }
             else if (Event.current.type == EventType.MouseUp && draggingNode != null)
             {
                 draggingNode = null;
             }
+        }
+
+        void UpdateScrollSize(float xMax, float yMax)
+        {
+            xMaxWindow = Mathf.Max(xMax, xMaxWindow);
+            yMaxWindow = Mathf.Max(yMax, yMaxWindow);
         }
 
         void DrawNode(DialogueNode node)
