@@ -16,7 +16,7 @@ MonoBehaviour:
   - uniqueID: 
     text: E ae!
     children: []
-    position:
+    rect:
       serializedVersion: 2
       x: 10
       y: 10
