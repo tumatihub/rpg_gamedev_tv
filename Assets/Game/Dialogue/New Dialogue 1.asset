@@ -16,3 +16,9 @@ MonoBehaviour:
   - uniqueID: 
     text: E ae!
     children: []
+    position:
+      serializedVersion: 2
+      x: 10
+      y: 10
+      width: 200
+      height: 100

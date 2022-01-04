@@ -10,6 +10,7 @@ namespace RPG.Dialogue.Editor
     public class DialogueEditor : EditorWindow
     {
         Dialogue selectedDialogue = null;
+        GUIStyle nodeStyle;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
@@ -32,6 +33,11 @@ namespace RPG.Dialogue.Editor
         void OnEnable()
         {
             Selection.selectionChanged += OnSelectionChanged;
+
+            nodeStyle = new GUIStyle();
+            nodeStyle.normal.background = EditorGUIUtility.Load("node0") as Texture2D;
+            nodeStyle.padding = new RectOffset(20, 20, 20, 20);
+            nodeStyle.border = new RectOffset(12, 12, 12, 12);
         }
 
         void OnSelectionChanged()
@@ -54,20 +60,28 @@ namespace RPG.Dialogue.Editor
             {
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
-                    EditorGUI.BeginChangeCheck();
-
-                    EditorGUILayout.LabelField("Node:");
-                    string newID = EditorGUILayout.TextField(node.uniqueID);
-                    string newText = EditorGUILayout.TextField(node.text);
-
-                    if (EditorGUI.EndChangeCheck())
-                    {
-                        Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
-                        node.uniqueID = newID;
-                        node.text = newText;
-                    }
+                    OnGUINode(node);
                 }
             }
+        }
+
+        void OnGUINode(DialogueNode node)
+        {
+            GUILayout.BeginArea(node.position, nodeStyle);
+            EditorGUI.BeginChangeCheck();
+
+            EditorGUILayout.LabelField("Node:");
+            string newID = EditorGUILayout.TextField(node.uniqueID);
+            string newText = EditorGUILayout.TextField(node.text);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
+                node.uniqueID = newID;
+                node.text = newText;
+            }
+
+            GUILayout.EndArea();
         }
     }
 }
