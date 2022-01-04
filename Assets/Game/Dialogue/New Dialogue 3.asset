@@ -17,18 +17,39 @@ MonoBehaviour:
     text: valid
     children:
     - 340f617f-68b4-4c16-8a31-8a9ddbb9feac
+    - 88d99b48-f9a1-451c-8331-5ea6659a9354
     rect:
       serializedVersion: 2
-      x: 21.449997
+      x: 22.449997
       y: 16.699997
       width: 200
       height: 100
   - uniqueID: 340f617f-68b4-4c16-8a31-8a9ddbb9feac
     text: 
+    children:
+    - e2a4096c-81b1-49fb-abe8-1a5e25607c5e
+    rect:
+      serializedVersion: 2
+      x: 285.45
+      y: 28.699997
+      width: 200
+      height: 100
+  - uniqueID: 88d99b48-f9a1-451c-8331-5ea6659a9354
+    text: 
+    children:
+    - e2a4096c-81b1-49fb-abe8-1a5e25607c5e
+    rect:
+      serializedVersion: 2
+      x: 288.45
+      y: 187.7
+      width: 200
+      height: 100
+  - uniqueID: e2a4096c-81b1-49fb-abe8-1a5e25607c5e
+    text: 
     children: []
     rect:
       serializedVersion: 2
-      x: 231.45
-      y: 16.699997
+      x: 585.45
+      y: 106.70001
       width: 200
       height: 100

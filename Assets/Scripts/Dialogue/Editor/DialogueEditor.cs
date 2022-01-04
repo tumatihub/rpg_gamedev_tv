@@ -15,6 +15,7 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] Vector2 draggingOffset;
         [NonSerialized] DialogueNode creatingNode = null;
         [NonSerialized] DialogueNode deletingNode = null;
+        [NonSerialized] DialogueNode linkingParentNode = null;
 
         [MenuItem("Window/Dialogue Editor")]
         public static void ShowEditorWindow()
@@ -131,6 +132,8 @@ namespace RPG.Dialogue.Editor
                 creatingNode = node;
             }
 
+            DrawLinkButtons(node);
+
             if (GUILayout.Button("-"))
             {
                 deletingNode = node;
@@ -139,6 +142,42 @@ namespace RPG.Dialogue.Editor
             GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
+        }
+
+        void DrawLinkButtons(DialogueNode node)
+        {
+            if (linkingParentNode == null)
+            {
+                if (GUILayout.Button("link"))
+                {
+                    linkingParentNode = node;
+                }
+            }
+            else if (node == linkingParentNode)
+            {
+                if (GUILayout.Button("cancel"))
+                {
+                    linkingParentNode = null;
+                }
+            }
+            else if (linkingParentNode.children.Contains(node.uniqueID))
+            {
+                if (GUILayout.Button("unlink"))
+                {
+                    Undo.RecordObject(selectedDialogue, "Remove Dialogue Link");
+                    linkingParentNode.children.Remove(node.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("child"))
+                {
+                    Undo.RecordObject(selectedDialogue, "Add Dialogue Link");
+                    linkingParentNode.children.Add(node.uniqueID);
+                    linkingParentNode = null;
+                }
+            }
         }
 
         void DrawConnections(DialogueNode node)
