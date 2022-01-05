@@ -9,6 +9,10 @@ namespace RPG.Dialogue.Editor
 {
     public class DialogueEditor : EditorWindow
     {
+        const float BACKGROUND_SIZE = 50f;
+        const float MIN_CANVAS_WIDHT = 1000f;
+        const float MIN_CANVAS_HEIGHT = 500f;
+
         Dialogue selectedDialogue = null;
         [NonSerialized] GUIStyle nodeStyle;
         [NonSerialized] DialogueNode draggingNode = null;
@@ -17,8 +21,8 @@ namespace RPG.Dialogue.Editor
         [NonSerialized] DialogueNode deletingNode = null;
         [NonSerialized] DialogueNode linkingParentNode = null;
         Vector2 scrollPosition;
-        float xMaxWindow;
-        float yMaxWindow;
+        float xMaxWindow = MIN_CANVAS_WIDHT;
+        float yMaxWindow = MIN_CANVAS_HEIGHT;
         [NonSerialized] bool draggingCanvas = false;
         [NonSerialized] Vector2 draggingCanvasOffset;
 
@@ -69,8 +73,8 @@ namespace RPG.Dialogue.Editor
 
         void UpdateScrollMaxSize()
         {
-            float xMax = 0;
-            float yMax = 0;
+            float xMax = MIN_CANVAS_WIDHT;
+            float yMax = MIN_CANVAS_HEIGHT;
             foreach (DialogueNode node in selectedDialogue.GetAllNodes())
             {
                 xMax = Mathf.Max(node.rect.xMax, xMax);
@@ -93,7 +97,10 @@ namespace RPG.Dialogue.Editor
 
                 scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
 
-                GUILayoutUtility.GetRect(xMaxWindow, yMaxWindow);
+                Rect canvas = GUILayoutUtility.GetRect(xMaxWindow, yMaxWindow);
+                Texture2D backgroundTex = Resources.Load("background") as Texture2D;
+                Rect texCoords = new Rect(0, 0, xMaxWindow/BACKGROUND_SIZE, yMaxWindow/BACKGROUND_SIZE);
+                GUI.DrawTextureWithTexCoords(canvas, backgroundTex, texCoords);
 
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
                 {
