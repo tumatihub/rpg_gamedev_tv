@@ -83,6 +83,7 @@ namespace RPG.Dialogue
                     parent.Rect.xMax + NEW_NODE_HORIZONTAL_OFFSET,
                     parent.Rect.y
                 );
+                newNode.IsPlayerSpeaking = !parent.IsPlayerSpeaking;
                 newNode.SetRectPosition(newNodePos);
                 parent.AddChild(newNode.name);
             }
