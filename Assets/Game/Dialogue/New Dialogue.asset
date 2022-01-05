@@ -13,32 +13,4 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: a
-    text: Hello
-    children:
-    - b
-    - c
-    rect:
-      serializedVersion: 2
-      x: 26
-      y: 20
-      width: 200
-      height: 150
-  - uniqueID: b
-    text: Hello, a from b!
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 291
-      y: 11
-      width: 200
-      height: 100
-  - uniqueID: c
-    text: Hello, a from c!
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 291
-      y: 116
-      width: 200
-      height: 100
+  - {fileID: 0}

@@ -13,12 +13,4 @@ MonoBehaviour:
   m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: 
-    text: E ae!
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 10
-      y: 10
-      width: 200
-      height: 100
+  - {fileID: 0}
