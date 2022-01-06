@@ -1023,6 +1023,7 @@ MonoBehaviour:
   AIResponse: {fileID: 5226000574198244256}
   choiceRoot: {fileID: 6511468652213794308}
   choicePrefab: {fileID: 6038312059914208170, guid: cc4ec50a3f4df704ab0324d9be4fe283, type: 3}
+  quitButton: {fileID: 1388282347248018089}
 --- !u!1001 &5554194509870362812
 PrefabInstance:
   m_ObjectHideFlags: 0

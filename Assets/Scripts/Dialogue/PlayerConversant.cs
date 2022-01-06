@@ -32,6 +32,13 @@ namespace RPG.Dialogue
             OnConversationUpdated?.Invoke();
         }
 
+        public void Quit()
+        {
+            currentDialogue = null;
+            isChoosing = false;
+            OnConversationUpdated?.Invoke();
+        }
+
         public string GetText()
         {
             if (currentNode == null) return string.Empty;
