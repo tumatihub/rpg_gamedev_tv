@@ -8,7 +8,11 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] Dialogue currentDialogue;
+        
         DialogueNode currentNode = null;
+        bool isChoosing = false;
+
+        public bool IsChoosing => isChoosing;
 
         void Awake()
         {
@@ -21,15 +25,21 @@ namespace RPG.Dialogue
             return currentNode.Text;
         }
 
-        public IEnumerable<string> GetChoices()
+        public IEnumerable<DialogueNode> GetChoices()
         {
-            yield return "I've lived here all my life!";
-            yield return "I came here from Newton.";
+            return currentDialogue.GetPlayerChildren(currentNode);
         }
 
         public void Next()
         {
-            DialogueNode[] children = currentDialogue.GetAllChildren(currentNode).ToArray();
+            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            if (numPlayerResponses > 0)
+            {
+                isChoosing = true;
+                return;
+            }
+
+            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
             int randomIndex = Random.Range(0, children.Length);
             currentNode = children[randomIndex];
         }
