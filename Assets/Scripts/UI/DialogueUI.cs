@@ -21,12 +21,15 @@ namespace RPG.UI
         void Start()
         {
             playerConversant = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversant>();
+            playerConversant.OnConversationUpdated += UpdateUI;
             nextButton.onClick.AddListener(Next);
             UpdateUI();
         }
 
         void UpdateUI()
         {
+            if (!playerConversant.IsActive) return;
+
             AIResponse.SetActive(!playerConversant.IsChoosing);
             choiceRoot.gameObject.SetActive(playerConversant.IsChoosing);
             if (playerConversant.IsChoosing)
@@ -54,7 +57,6 @@ namespace RPG.UI
                 Button button = choiceInstance.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => {
                     playerConversant.SelectChoice(choiceNode);
-                    UpdateUI();
                 });
             }
         }
@@ -62,7 +64,6 @@ namespace RPG.UI
         void Next()
         {
             playerConversant.Next();
-            UpdateUI();
         }
     }
 }
