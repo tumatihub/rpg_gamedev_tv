@@ -11,6 +11,8 @@ namespace RPG.Dialogue
         [SerializeField] string text;
         [SerializeField] List<string> children = new List<string>();
         [SerializeField] Rect rect = new Rect(10, 10, 200, 100);
+        [SerializeField] string onEnterAction;
+        [SerializeField] string onExitAction;
 
         public string Text { 
             get => text;
@@ -50,6 +52,9 @@ namespace RPG.Dialogue
             }
 #endif
         }
+
+        public string OnEnterAction => onEnterAction;
+        public string OnExitAction => onExitAction;
 
 #if UNITY_EDITOR
         public void SetRectPosition(Vector2 newPosition)
