@@ -12,6 +12,7 @@ namespace RPG.Dialogue
 
         Dialogue currentDialogue;
         DialogueNode currentNode = null;
+        AIConversant currentConversant = null;
         bool isChoosing = false;
 
         public bool IsChoosing => isChoosing;
@@ -19,8 +20,9 @@ namespace RPG.Dialogue
 
         public event Action OnConversationUpdated;
 
-        public void StartDialogue(Dialogue newDialogue)
+        public void StartDialogue(AIConversant newConversant, Dialogue newDialogue)
         {
+            currentConversant = newConversant;
             currentDialogue = newDialogue;
             currentNode = currentDialogue.GetRootNode();
             TriggerEnterAction();
@@ -30,6 +32,7 @@ namespace RPG.Dialogue
         public void Quit()
         {
             TriggerExitAction();
+            currentConversant = null;
             currentDialogue = null;
             isChoosing = false;
             OnConversationUpdated?.Invoke();
@@ -80,18 +83,29 @@ namespace RPG.Dialogue
 
         void TriggerEnterAction()
         {
-            if (currentNode != null && currentNode.OnEnterAction != string.Empty)
+            if (currentNode != null)
             {
-                Debug.Log(currentNode.OnEnterAction);
+                TriggerAction(currentNode.OnEnterAction);
             }
         }
 
         void TriggerExitAction()
         {
-            if (currentNode != null && currentNode.OnExitAction != string.Empty)
+            if (currentNode != null)
             {
-                Debug.Log(currentNode.OnExitAction);
+                TriggerAction(currentNode.OnExitAction);
             }
         }
+
+        void TriggerAction(string action)
+        {
+            if (action == string.Empty) return;
+
+            foreach (DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
+            {
+                trigger.Trigger(action);
+            }
+        }
+
     }
 }
