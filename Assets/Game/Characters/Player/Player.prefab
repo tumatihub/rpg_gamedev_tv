@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testDialogue: {fileID: 0}
+  playerName: White Beard Hero
 --- !u!114 &3487669981484411375
 MonoBehaviour:
   m_ObjectHideFlags: 0
