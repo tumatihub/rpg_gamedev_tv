@@ -1239,6 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 0}
+  conversantName: 
 --- !u!114 &451344464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: e771604cb462b0e4497ce1e94aba854c, type: 2}
+  conversantName: Conversant Guard
 --- !u!114 &511734923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4015835495424681853, guid: e62fd72ccbe037d4e93a49bb9a499b09, type: 3}
@@ -4752,6 +4754,10 @@ PrefabInstance:
       propertyPath: testDialogue
       value: 
       objectReference: {fileID: 11400000, guid: e771604cb462b0e4497ce1e94aba854c, type: 2}
+    - target: {fileID: 160218624211482937, guid: a201022477da321469e72af44c8a4c4c, type: 3}
+      propertyPath: conversantName
+      value: White Beard Hero
+      objectReference: {fileID: 0}
     - target: {fileID: 438623402132205607, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5378,7 +5384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.75
+      value: -644.80005
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x
