@@ -1238,8 +1238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a15a8c4ab662a440a50b7608c21fc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
-  conversantName: 
+  dialogue: {fileID: 11400000, guid: 12612f4cee140474a8a4e5c48cc5a688, type: 2}
+  conversantName: Motherhubbards Son
 --- !u!114 &451344464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,10 +1252,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f3ee8b42e2b2241bdd97b10ba0ce0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: Attack
+  action: GiveQuest
   onTigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 451344465}
+        m_TargetAssemblyTypeName: RPG.Quests.QuestGiver, Assembly-CSharp
+        m_MethodName: GiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &451344465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451344461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f182b49e0d5be754faa8b1f2e669453c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 45eafa71df684ab4c8ab7f31480eccc7, type: 2}
 --- !u!1001 &478575461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6048,7 +6073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.75006
+      value: -570.72974
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6056,6 +6081,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5724333480511848340, guid: a201022477da321469e72af44c8a4c4c, type: 3}

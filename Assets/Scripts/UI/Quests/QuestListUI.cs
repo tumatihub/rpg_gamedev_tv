@@ -8,10 +8,17 @@ namespace RPG.UI.Quests
     public class QuestListUI : MonoBehaviour
     {
         [SerializeField] QuestItemUI questPrefab;
+        QuestList questList;
         
         void Start()
         {
-            QuestList questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            questList = GameObject.FindGameObjectWithTag("Player").GetComponent<QuestList>();
+            questList.OnQuestListUpdate += UpdateUI;
+            UpdateUI();
+        }
+
+        void UpdateUI()
+        {
             foreach (QuestItemUI item in GetComponentsInChildren<QuestItemUI>())
             {
                 Destroy(item.gameObject);
