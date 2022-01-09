@@ -1,5 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9097314874324750712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95071e8bdf2f3d4e8dea00a0c1693a8, type: 3}
+  m_Name: 6da8eed8-7a1d-430b-80a5-68b223bfe9c8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I have the foot cream
+  children:
+  - ab5ecf4c-4285-4ddc-81a4-7b5724abe20e
+  rect:
+    serializedVersion: 2
+    x: 224
+    y: 368
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: HasInventoryItem
+    parameters:
+    - fba84bb6-6d2c-419c-8b9c-f7a27e6e84b0
 --- !u!114 &-8846615612944490473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +54,32 @@ MonoBehaviour:
   condition:
     predicate: 
     parameters: []
+--- !u!114 &-8278025916133336043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95071e8bdf2f3d4e8dea00a0c1693a8, type: 3}
+  m_Name: ab5ecf4c-4285-4ddc-81a4-7b5724abe20e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: That's amazing thank you!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 445
+    y: 368
+    width: 200
+    height: 100
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    predicate: 
+    parameters: []
 --- !u!114 &-1679018887745436640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +98,7 @@ MonoBehaviour:
   - 7cbc3943-095a-4a0b-93fd-00841dc10ca9
   - cdedf8ea-fe40-4a78-b7b8-67caaacdbdb8
   - ff4c7542-5298-4d87-bf90-35cb927d9de6
+  - 6da8eed8-7a1d-430b-80a5-68b223bfe9c8
   rect:
     serializedVersion: 2
     x: 10
@@ -100,6 +155,8 @@ MonoBehaviour:
   - {fileID: -1421013840584158747}
   - {fileID: 2790190115307904163}
   - {fileID: -8846615612944490473}
+  - {fileID: -9097314874324750712}
+  - {fileID: -8278025916133336043}
 --- !u!114 &2790190115307904163
 MonoBehaviour:
   m_ObjectHideFlags: 0
