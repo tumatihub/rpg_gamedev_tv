@@ -1,3 +1,5 @@
+using RPG.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -13,6 +15,7 @@ namespace RPG.Dialogue
         [SerializeField] Rect rect = new Rect(10, 10, 200, 100);
         [SerializeField] string onEnterAction;
         [SerializeField] string onExitAction;
+        [SerializeField] Condition condition;
 
         public string Text { 
             get => text;
@@ -76,6 +79,11 @@ namespace RPG.Dialogue
             Undo.RecordObject(this, "Remove Dialogue Link");
             children.Remove(childID);
             EditorUtility.SetDirty(this);
+        }
+
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
         }
 #endif
 

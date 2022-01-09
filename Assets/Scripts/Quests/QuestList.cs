@@ -4,12 +4,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Quests
 {
     [RequireComponent(typeof(ItemDropper))]
     [RequireComponent(typeof(Inventory))]
-    public class QuestList : MonoBehaviour, ISaveable
+    public class QuestList : MonoBehaviour, ISaveable, IPredicateEvaluator
     {
         List<QuestStatus> statuses = new List<QuestStatus>();
 
@@ -26,7 +27,7 @@ namespace RPG.Quests
 
         public void AddQuest(Quest quest)
         {
-            if (QuestAlreadyExists(quest)) return;
+            if (HasQuest(quest)) return;
             QuestStatus newStatus = new QuestStatus(quest);
             statuses.Add(newStatus);
 
@@ -52,7 +53,7 @@ namespace RPG.Quests
             return statuses;
         }
 
-        bool QuestAlreadyExists(Quest quest)
+        bool HasQuest(Quest quest)
         {
             return GetQuestStatus(quest) != null;
         }
@@ -95,6 +96,15 @@ namespace RPG.Quests
             {
                 statuses.Add(new QuestStatus(objectState));
             }
+        }
+
+        public bool? Evaluate(string predicate, string[] parameters)
+        {
+            if (predicate != "HasQuest") return null;
+
+            Quest quest = Quest.GetByName(parameters[0]);
+
+            return HasQuest(quest);
         }
     }
 }
