@@ -15,6 +15,10 @@ MonoBehaviour:
   objectives:
   - reference: 1
     description: Find the pharmacist
+  - reference: 2
+    description: Kill the guard
   rewards:
   - number: 1
     item: {fileID: 11400000, guid: c5c9154c808febc4b886c24349abb371, type: 2}
+  - number: 2
+    item: {fileID: 11400000, guid: 2a309ea872253ca4bbf313c735962640, type: 2}

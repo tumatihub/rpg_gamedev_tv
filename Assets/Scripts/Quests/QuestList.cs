@@ -1,3 +1,4 @@
+using GameDevTV.Inventories;
 using GameDevTV.Saving;
 using System;
 using System.Collections;
@@ -6,11 +7,22 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
+    [RequireComponent(typeof(ItemDropper))]
+    [RequireComponent(typeof(Inventory))]
     public class QuestList : MonoBehaviour, ISaveable
     {
         List<QuestStatus> statuses = new List<QuestStatus>();
 
         public event Action OnQuestListUpdate;
+        ItemDropper itemDropper;
+
+        Inventory inventory;
+
+        void Awake()
+        {
+            inventory = GetComponent<Inventory>();
+            itemDropper = GetComponent<ItemDropper>();
+        }
 
         public void AddQuest(Quest quest)
         {
@@ -27,6 +39,10 @@ namespace RPG.Quests
             if (status == null) return;
 
             status.CompleteObjective(objective);
+            if (status.IsComplete())
+            {
+                GiveReward(quest);
+            }
 
             OnQuestListUpdate?.Invoke();
         }
@@ -48,6 +64,15 @@ namespace RPG.Quests
                 if (status.Quest == quest) return status;
             }
             return null;
+        }
+
+        void GiveReward(Quest quest)
+        {
+            foreach (Quest.Reward reward in quest.GetRewards())
+            {
+                bool success = inventory.AddToFirstEmptySlot(reward.item, reward.number);
+                if (!success) itemDropper.DropItem(reward.item, reward.number);
+            }
         }
 
         public object CaptureState()

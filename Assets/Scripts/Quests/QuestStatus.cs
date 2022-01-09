@@ -31,6 +31,15 @@ namespace RPG.Quests
             completedObjectives = statusRecord.completedObjectives;
         }
 
+        public bool IsComplete()
+        {
+            foreach (Quest.Objective objective in quest.GetObjectives())
+            {
+                if (!completedObjectives.Contains(objective.reference)) return false;
+            }
+            return true;
+        }
+
         public Quest Quest  => quest;
 
         public int GetCompletedCount()
