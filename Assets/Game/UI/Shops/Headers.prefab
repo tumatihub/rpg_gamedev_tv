@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -728.85, y: -0.000038146973}
+  m_AnchoredPosition: {x: -889.18, y: 0}
   m_SizeDelta: {x: 371.02612, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2024169680359071803
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -422.41, y: 0}
-  m_SizeDelta: {x: 201.85791, y: 0}
+  m_AnchoredPosition: {x: -502.57214, y: 0}
+  m_SizeDelta: {x: 362.1821, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7275320790928160186
 CanvasRenderer:
@@ -262,8 +262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -410.76, y: 0}
-  m_SizeDelta: {x: -1047.2, y: 0}
+  m_AnchoredPosition: {x: -490.93, y: 0}
+  m_SizeDelta: {x: -1207.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2919683036295814806
 CanvasRenderer:
@@ -340,8 +340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0024414062, y: -452}
-  m_SizeDelta: {x: -240, y: 100}
+  m_AnchoredPosition: {x: -51.263428, y: -452}
+  m_SizeDelta: {x: 1238.0327, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8216008968534929659
 GameObject:
@@ -519,6 +519,14 @@ PrefabInstance:
       value: Name
       objectReference: {fileID: 0}
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
@@ -627,6 +635,14 @@ PrefabInstance:
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_text
       value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_VerticalAlignment
@@ -739,6 +755,14 @@ PrefabInstance:
       value: Quantity
       objectReference: {fileID: 0}
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
@@ -847,6 +871,14 @@ PrefabInstance:
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_text
       value: Availability
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 882381004512143108, guid: 5001465e98116d14dba0ff98ca0e7c74, type: 3}
       propertyPath: m_VerticalAlignment
