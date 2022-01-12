@@ -14,6 +14,7 @@ namespace RPG.UI.Shops
         [SerializeField] TextMeshProUGUI nameField;
         [SerializeField] TextMeshProUGUI availabilityField;
         [SerializeField] TextMeshProUGUI priceField;
+        [SerializeField] TextMeshProUGUI quantityField;
 
         Shop currentShop;
         ShopItem shopItem;
@@ -26,6 +27,7 @@ namespace RPG.UI.Shops
             nameField.text = item.GetName();
             availabilityField.text = item.Availability.ToString();
             priceField.text = $"${item.Price:N2}";
+            quantityField.text = item.QuantityInTransaction.ToString();
         }
 
         public void Add()
