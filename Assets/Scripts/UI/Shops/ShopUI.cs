@@ -1,3 +1,4 @@
+using RPG.Shops;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,22 @@ namespace RPG.UI.Shops
 {
     public class ShopUI : MonoBehaviour
     {
-        // Start is called before the first frame update
+        Shopper shopper;
+        Shop currentShop;
+
         void Start()
         {
-        
+            shopper = GameObject.FindGameObjectWithTag("Player").GetComponent<Shopper>();
+            if (shopper == null) return;
+            shopper.OnActiveShopChange += ShopChanged;
+
+            ShopChanged();
         }
 
-        // Update is called once per frame
-        void Update()
+        void ShopChanged()
         {
-        
+            currentShop = shopper.GetActiveShop();
+            gameObject.SetActive(currentShop != null);
         }
     }
 }
