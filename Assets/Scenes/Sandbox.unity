@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: ea304a1d-49f0-42cb-a2f6-8fd87d648034
       objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: shopName
+      value: Mr Bongo's Emporium
+      objectReference: {fileID: 0}
     - target: {fileID: 7477240641320156279, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4755,6 +4759,10 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: cf8f18aa-a089-45f5-904a-7728a0a93157
       objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: shopName
+      value: Jimbob's Shop
+      objectReference: {fileID: 0}
     - target: {fileID: 7477240641320156279, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6512,7 +6520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.75
+      value: -570.74994
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x

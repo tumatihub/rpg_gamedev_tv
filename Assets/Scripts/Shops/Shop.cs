@@ -17,6 +17,10 @@ namespace RPG.Shops
             int quantityInTransaction;
         }
 
+        [SerializeField] string shopName;
+
+        public string ShopName => shopName;
+
         public event Action OnChange;
 
         public IEnumerable<ShopItem> GetFilteredItems() { return null; }
