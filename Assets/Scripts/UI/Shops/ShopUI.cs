@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 namespace RPG.UI.Shops
 {
     public class ShopUI : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI shopName;
+        [SerializeField] Transform listRoot;
+        [SerializeField] RowUI rowPrefab;
 
         Shopper shopper;
         Shop currentShop;
@@ -22,6 +25,11 @@ namespace RPG.UI.Shops
             ShopChanged();
         }
 
+        public void Close()
+        {
+            shopper.SetActiveShop(null);
+        }
+
         void ShopChanged()
         {
             currentShop = shopper.GetActiveShop();
@@ -29,11 +37,22 @@ namespace RPG.UI.Shops
             if (currentShop == null) return;
 
             shopName.text = currentShop.ShopName;
+
+            RefreshUI();
         }
 
-        public void Close()
+        void RefreshUI()
         {
-            shopper.SetActiveShop(null);
+            foreach (Transform row in listRoot)
+            {
+                Destroy(row.gameObject);
+            }
+
+            foreach (ShopItem item in currentShop.GetFilteredItems())
+            {
+                RowUI row = Instantiate(rowPrefab, listRoot);
+                row.Setup(item);
+            }
         }
     }
 }

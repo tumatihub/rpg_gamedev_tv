@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1873759592788282625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825224184060083240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b290436e03f3a4d967b064ae02882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconField: {fileID: 4279975492226749955}
+  nameField: {fileID: 6290469146700585006}
+  availabilityField: {fileID: 3607471571926431573}
+  priceField: {fileID: 1919725741756169162}
 --- !u!114 &6865565764694132930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,3 +313,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3474843029442246889, guid: a34da58010141e042b5dbe6dbe5d9374, type: 3}
   m_PrefabInstance: {fileID: 6599909282722016767}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6290469146700585006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 926522002000737745, guid: a34da58010141e042b5dbe6dbe5d9374, type: 3}
+  m_PrefabInstance: {fileID: 6599909282722016767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3607471571926431573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7604265085372750506, guid: a34da58010141e042b5dbe6dbe5d9374, type: 3}
+  m_PrefabInstance: {fileID: 6599909282722016767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1919725741756169162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4698286725225403957, guid: a34da58010141e042b5dbe6dbe5d9374, type: 3}
+  m_PrefabInstance: {fileID: 6599909282722016767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
