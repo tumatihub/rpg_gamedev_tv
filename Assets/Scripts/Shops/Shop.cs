@@ -40,7 +40,10 @@ namespace RPG.Shops
         public bool CanTransact() { return true; }
         public void ConfirmTransaction() { }
         public float TransactionTotal() { return 0; }
-        public void AddToTransaction(InventoryItem item, int quantity) { }
+        public void AddToTransaction(InventoryItem item, int quantity)
+        {
+            print($"Added To Transaction: {item.GetDisplayName()} x {quantity}");
+        }
 
         public CursorType GetCursorType()
         {

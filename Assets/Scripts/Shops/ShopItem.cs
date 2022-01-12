@@ -21,6 +21,7 @@ namespace RPG.Shops
         public int Availability => availability;
         public float Price => price;
         public int QuantityInTransaction => quantityInTransaction;
+        public InventoryItem Item => item;
 
         public string GetName()
         {
