@@ -902,6 +902,42 @@ PrefabInstance:
       propertyPath: shopName
       value: Mr Bongo's Emporium
       objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a309ea872253ca4bbf313c735962640, type: 2}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: daa8cd743db4082459e1e683d34d226e, type: 2}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[2].item
+      value: 
+      objectReference: {fileID: 11400000, guid: c5c9154c808febc4b886c24349abb371, type: 2}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[0].initialStock
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[1].initialStock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[2].initialStock
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[0].buyingDiscountPercentage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[2].buyingDiscountPercentage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7477240641320156279, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: m_RootOrder
       value: 0
