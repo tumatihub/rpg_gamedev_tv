@@ -22,10 +22,16 @@ namespace RPG.Shops
         [SerializeField] StockItemConfig[] stockConfig;
 
         Dictionary<InventoryItem, int> transaction = new Dictionary<InventoryItem, int>();
+        Shopper currentShopper;
 
         public string ShopName => shopName;
 
         public event Action OnChange;
+
+        public void SetShopper(Shopper shopper)
+        {
+            this.currentShopper = shopper;
+        }
 
         public IEnumerable<ShopItem> GetFilteredItems()
         {
@@ -42,7 +48,22 @@ namespace RPG.Shops
         public void SelectMode(bool isBuying) { }
         public bool IsBuyingMode() { return true; }
         public bool CanTransact() { return true; }
-        public void ConfirmTransaction() { }
+        public void ConfirmTransaction()
+        {
+            Inventory shopperInventory = currentShopper.GetComponent<Inventory>();
+            if (shopperInventory == null) return;
+
+            var transactionSnapshot = new Dictionary<InventoryItem, int>(transaction);
+            foreach (InventoryItem item in transactionSnapshot.Keys)
+            {
+                int quantity = transactionSnapshot[item];
+                for (int i = 0; i < quantity; i++)
+                {
+                    bool success = shopperInventory.AddToFirstEmptySlot(item, 1);
+                    if (success) AddToTransaction(item, -1);
+                }
+            }
+        }
         public float TransactionTotal() { return 0; }
         public void AddToTransaction(InventoryItem item, int quantity)
         {
