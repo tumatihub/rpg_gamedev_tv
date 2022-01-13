@@ -63,7 +63,13 @@ namespace RPG.Shops
         public ItemCategory GetFilter() { return ItemCategory.None; }
         public void SelectMode(bool isBuying) { }
         public bool IsBuyingMode() { return true; }
-        public bool CanTransact() { return true; }
+        public bool CanTransact()
+        {
+            if (IsTransactionEmpty()) return false;
+            if (!HasSufficientFunds()) return false;
+            return true;
+        }
+
         public void ConfirmTransaction()
         {
             Purse purse = currentShopper.GetComponent<Purse>();
@@ -139,6 +145,18 @@ namespace RPG.Shops
                 callingController.GetComponent<Shopper>().SetActiveShop(this);
             }
             return true;
+        }
+
+        public bool HasSufficientFunds()
+        {
+            Purse purse = currentShopper.GetComponent<Purse>();
+            if (purse == null) return false;
+            return purse.Balance >= TransactionTotal();
+        }
+
+        bool IsTransactionEmpty()
+        {
+            return transaction.Count == 0;
         }
     }
 }
