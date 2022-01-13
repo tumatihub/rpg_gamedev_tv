@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Control;
+using RPG.Inventories;
 
 namespace RPG.Shops
 {
@@ -56,17 +57,26 @@ namespace RPG.Shops
         public bool CanTransact() { return true; }
         public void ConfirmTransaction()
         {
+            Purse purse = currentShopper.GetComponent<Purse>();
             Inventory shopperInventory = currentShopper.GetComponent<Inventory>();
-            if (shopperInventory == null) return;
+            if (shopperInventory == null || purse == null) return;
 
-            var transactionSnapshot = new Dictionary<InventoryItem, int>(transaction);
-            foreach (InventoryItem item in transactionSnapshot.Keys)
+            foreach (ShopItem shopItem in GetAllItems())
             {
-                int quantity = transactionSnapshot[item];
+                InventoryItem item = shopItem.Item;
+                int quantity = shopItem.QuantityInTransaction;
+                float price = item.GetPrice();
+                
                 for (int i = 0; i < quantity; i++)
                 {
+                    if (purse.Balance < price) break;
+                    
                     bool success = shopperInventory.AddToFirstEmptySlot(item, 1);
-                    if (success) AddToTransaction(item, -1);
+                    if (success)
+                    {
+                        AddToTransaction(item, -1);
+                        purse.UpdateBalance(-price);
+                    }
                 }
             }
         }
