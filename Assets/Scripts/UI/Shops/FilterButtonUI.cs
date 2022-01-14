@@ -25,6 +25,11 @@ namespace RPG.UI.Shops
             this.currentShop = currentShop;
         }
 
+        public void RefreshUI()
+        {
+            button.interactable = currentShop.GetFilter() != category;
+        }
+
         void SelectFilter()
         {
             currentShop.SelectFilter(category);

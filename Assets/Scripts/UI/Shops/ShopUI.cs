@@ -102,6 +102,11 @@ namespace RPG.UI.Shops
                 switchText.text = "Switch To Buying";
                 confirmButtonText.text = "Sell";
             }
+
+            foreach (FilterButtonUI button in GetComponentsInChildren<FilterButtonUI>())
+            {
+                button.RefreshUI();
+            }
         }
     }
 }
