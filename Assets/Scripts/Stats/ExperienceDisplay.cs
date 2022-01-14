@@ -17,7 +17,7 @@ namespace RPG.Stats
 
         void Update()
         {
-            textDisplay.text = $"{experience.ExperiencePoints}";
+            textDisplay.text = $"{experience.ExperiencePoints:0}";
         }
     }
 }

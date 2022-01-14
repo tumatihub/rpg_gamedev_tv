@@ -26,10 +26,12 @@ MonoBehaviour:
       levels: []
     - stat: 2
       levels:
-      - 10
-      - 20
-      - 30
-      - 40
+      - 100
+      - 200
+      - 400
+      - 500
+      - 1000
+      - 2000
     - stat: 3
       levels:
       - 8

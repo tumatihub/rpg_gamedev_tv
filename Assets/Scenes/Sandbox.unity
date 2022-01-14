@@ -931,6 +931,14 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[1].levelToUnlock
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[2].levelToUnlock
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.data[0].buyingDiscountPercentage
       value: 0
       objectReference: {fileID: 0}
@@ -6556,7 +6564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.74994
+      value: -570.75
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Control;
 using RPG.Inventories;
+using RPG.Stats;
 
 namespace RPG.Shops
 {
@@ -17,6 +18,7 @@ namespace RPG.Shops
             public int initialStock;
             [Range(0,100)]
             public float buyingDiscountPercentage;
+            public int levelToUnlock = 0;
         }
 
         [SerializeField] string shopName;
@@ -62,8 +64,11 @@ namespace RPG.Shops
 
         public IEnumerable<ShopItem> GetAllItems()
         {
+            int shopperLevel = GetShopperLevel();
             foreach (StockItemConfig config in stockConfig)
             {
+                if (config.levelToUnlock > shopperLevel) continue;
+
                 float price = CalculatePrice(config);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
@@ -279,6 +284,14 @@ namespace RPG.Shops
                 stock[item]--;
                 purse.UpdateBalance(-price);
             }
+        }
+
+        int GetShopperLevel()
+        {
+            BaseStats stats = currentShopper.GetComponent<BaseStats>();
+            if (stats == null) return 0;
+
+            return stats.GetLevel();
         }
     }
 }
