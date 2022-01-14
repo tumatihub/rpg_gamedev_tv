@@ -85,6 +85,7 @@ MonoBehaviour:
   rowPrefab: {fileID: 1873759592788282625, guid: 7517fbc53bd2ed948b8fa35d2952d36c, type: 3}
   totalField: {fileID: 8011430668874128517}
   confirmButton: {fileID: 8058605524563884053}
+  switchButton: {fileID: 5783769227540993828}
 --- !u!1001 &188963206686281158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,6 +941,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
+--- !u!114 &5783769227540993828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 231696057101601808, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
+  m_PrefabInstance: {fileID: 6013208347162762036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6133304723816332492
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,12 +21,16 @@ namespace RPG.Shops
 
         [SerializeField] string shopName;
         [SerializeField] StockItemConfig[] stockConfig;
+        [Range(0, 100)]
+        [SerializeField] float sellingPercentage = 80f;
 
         Dictionary<InventoryItem, int> transaction = new Dictionary<InventoryItem, int>();
         Dictionary<InventoryItem, int> stock = new Dictionary<InventoryItem, int>();
         Shopper currentShopper;
+        bool isBuyingMode = true;
 
         public string ShopName => shopName;
+        public bool IsBuyingMode => isBuyingMode;
 
         public event Action OnChange;
 
@@ -52,17 +56,34 @@ namespace RPG.Shops
         {
             foreach (StockItemConfig config in stockConfig)
             {
-                float price = config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+                float price = CalculatePrice(config);
                 int quantityInTransaction = 0;
                 transaction.TryGetValue(config.item, out quantityInTransaction);
                 yield return new ShopItem(config.item, stock[config.item], price, quantityInTransaction);
             }
         }
 
+        float CalculatePrice(StockItemConfig config)
+        {
+            if (IsBuyingMode)
+            {
+                return config.item.GetPrice() * (1 - config.buyingDiscountPercentage / 100);
+            }
+            else
+            {
+                return config.item.GetPrice() * (sellingPercentage / 100);
+            }
+        }
+
         public void SelectFilter(ItemCategory category) { }
         public ItemCategory GetFilter() { return ItemCategory.None; }
-        public void SelectMode(bool isBuying) { }
-        public bool IsBuyingMode() { return true; }
+        
+        public void SelectMode(bool isBuying)
+        {
+            isBuyingMode = isBuying;
+            OnChange?.Invoke();
+        }
+
         public bool CanTransact()
         {
             if (IsTransactionEmpty()) return false;
