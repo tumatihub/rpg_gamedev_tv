@@ -6,10 +6,11 @@ using UnityEngine;
 using RPG.Control;
 using RPG.Inventories;
 using RPG.Stats;
+using GameDevTV.Saving;
 
 namespace RPG.Shops
 {
-    public partial class Shop : MonoBehaviour, IRaycastable
+    public partial class Shop : MonoBehaviour, IRaycastable, ISaveable
     {
         [System.Serializable]
         class StockItemConfig
@@ -331,6 +332,26 @@ namespace RPG.Shops
                 if (config.levelToUnlock > shopperLevel) continue;
 
                 yield return config;
+            }
+        }
+
+        public object CaptureState()
+        {
+            Dictionary<string, int> saveObject = new Dictionary<string, int>();
+            foreach (var pair in stockSold)
+            {
+                saveObject[pair.Key.GetItemID()] = pair.Value;
+            }
+            return saveObject;
+        }
+
+        public void RestoreState(object state)
+        {
+            Dictionary<string, int> saveObject = (Dictionary<string, int>)state;
+            stockSold.Clear();
+            foreach (var pair in saveObject)
+            {
+                stockSold[InventoryItem.GetFromID(pair.Key)] = pair.Value;
             }
         }
     }

@@ -1010,7 +1010,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop Keeper (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4178592949697810410, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
 --- !u!1 &237153801
 GameObject:
@@ -4871,7 +4872,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop Keeper (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4178592949697810410, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
 --- !u!4 &2048017004 stripped
 Transform:
@@ -6580,7 +6582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -497.64935
+      value: -570.24976
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x
