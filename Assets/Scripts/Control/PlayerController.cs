@@ -5,9 +5,11 @@ using RPG.Attributes;
 using System;
 using UnityEngine.EventSystems;
 using UnityEngine.AI;
+using GameDevTV.Inventories;
 
 namespace RPG.Control
 {
+    [RequireComponent(typeof(ActionStore))]
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Fighter))]
     [RequireComponent(typeof(Health))]
@@ -25,18 +27,21 @@ namespace RPG.Control
         [SerializeField] Camera mainCamera = null;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
+        [SerializeField] int numberOfAbilities = 6;
 
         bool isDraggingUI = false;
 
         Mover mover;
         Fighter fighter;
         Health health;
+        ActionStore actionStore;
 
         void Awake()
         {
             mover = GetComponent<Mover>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
+            actionStore = GetComponent<ActionStore>();
         }
 
         void Update()
@@ -47,6 +52,8 @@ namespace RPG.Control
                 SetCursor(CursorType.None);
                 return;
             }
+
+            UseAbilities();
 
             if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
@@ -71,6 +78,17 @@ namespace RPG.Control
             }
             if (isDraggingUI) return true;
             return false;
+        }
+
+        void UseAbilities()
+        {
+            for (int i = 0; i < numberOfAbilities; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    actionStore.Use(i, gameObject);
+                }
+            }
         }
 
         bool InteractWithComponent()
