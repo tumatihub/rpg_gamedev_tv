@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77e27f525bf58884c816d59a552d7784, type: 3}
-  m_Name: Super Mega Splash
+  m_Name: Super Mega Splash Ability
   m_EditorClassIdentifier: 
   itemID: 43d1c163-c49c-46f4-992d-8faf6f6d8957
   displayName: Super Mega Splash
@@ -21,4 +21,4 @@ MonoBehaviour:
   price: 50
   category: 5
   consumable: 0
-  targetingStrategy: {fileID: 11400000, guid: 1a244d01db4efdd48b1eb2ae734ae0d0, type: 2}
+  targetingStrategy: {fileID: 11400000, guid: 500e57bd8da23ff49b41d78a2f2d7a12, type: 2}
