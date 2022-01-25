@@ -14,22 +14,23 @@ namespace RPG.Abilities
 
         public override void Use(GameObject user)
         {
-            targetingStrategy.StartTargeting(user, (IEnumerable < GameObject > targets) =>
+            AbilityData data = new AbilityData(user);
+            targetingStrategy.StartTargeting(data, () =>
             {
-                TargetAquired(user, targets);
+                TargetAquired(data);
             });
         }
 
-        void TargetAquired(GameObject user, IEnumerable<GameObject> targets)
+        void TargetAquired(AbilityData data)
         {
             foreach (var filterStrategy in filterStrategies)
             {
-                targets = filterStrategy.Filter(targets);
+                data.SetTargets(filterStrategy.Filter(data.GetTargets()));
             }
 
             foreach (var effect in effectStrategies)
             {
-                effect.StartEffect(user, targets, EffectFinished);
+                effect.StartEffect(data, EffectFinished);
             }
         }
 
