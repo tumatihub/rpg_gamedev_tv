@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4023655680009913697, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7113311260575592297, guid: 63add04dc54fceb43938a708e28a34ce, type: 3}
       propertyPath: health
       value: 20
