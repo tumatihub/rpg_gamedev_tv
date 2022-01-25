@@ -17,4 +17,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  areaAffectRadius: 100
+  areaAffectRadius: 5
+  targetingPrefab: {fileID: 7333763019622519214, guid: f0bb497b8c0237d41b4ba0b0c3e93c5a, type: 3}
