@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3827e45dc3f6ecb4192c8ff31843eacc, type: 3}
+  m_Name: Super Mega Splash Ability Delayed Effect
+  m_EditorClassIdentifier: 
+  delay: 0.53
+  delayedEffects:
+  - {fileID: 11400000, guid: fa0692c820de3d945b44645a00315864, type: 2}
+  - {fileID: 11400000, guid: 275b2f5368c14d141a29077603d74d98, type: 2}
