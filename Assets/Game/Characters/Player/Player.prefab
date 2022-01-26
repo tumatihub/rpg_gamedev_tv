@@ -155,6 +155,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 16
+--- !u!114 &8126587950557133189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820557297020130390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794e01701c4135747bc2271a0c22af2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 200
+  manaRegenRate: 2
 --- !u!114 &9024178078474786059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,19 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb6f5ad5a45a2849a6562d11a3d0908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8126587950557133189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820557297020130390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 794e01701c4135747bc2271a0c22af2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxMana: 200
 --- !u!1001 &4177463452798050860
 PrefabInstance:
   m_ObjectHideFlags: 0
