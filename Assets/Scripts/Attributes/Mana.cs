@@ -2,11 +2,12 @@
 using System.Collections;
 using GameDevTV.Utils;
 using RPG.Stats;
+using GameDevTV.Saving;
 
 namespace RPG.Attributes
 {
     [RequireComponent(typeof(BaseStats))]
-    public class Mana : MonoBehaviour
+    public class Mana : MonoBehaviour, ISaveable
     {
         LazyValue<float> mana;
 
@@ -50,6 +51,16 @@ namespace RPG.Attributes
             }
             mana.value -= manaToUse;
             return true;
+        }
+
+        public object CaptureState()
+        {
+            return mana.value;
+        }
+
+        public void RestoreState(object state)
+        {
+            mana.value = (float)state;
         }
     }
 }
