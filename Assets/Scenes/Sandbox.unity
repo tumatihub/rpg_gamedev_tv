@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.data[0].item
@@ -931,6 +931,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d20011284e8e44449bc1c1e1cc2f30d2, type: 2}
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[6].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cfeed3ece85174438ed80c85a2fc788, type: 2}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.data[0].initialStock
       value: 10
       objectReference: {fileID: 0}
@@ -953,6 +957,10 @@ PrefabInstance:
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.data[5].initialStock
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
+      propertyPath: stockConfig.Array.data[6].initialStock
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5697291555794774876, guid: c17ab6fdf52869945b932bb62065b52b, type: 3}
       propertyPath: stockConfig.Array.data[1].levelToUnlock
@@ -6606,7 +6614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -570.74994
+      value: -570.75006
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x
