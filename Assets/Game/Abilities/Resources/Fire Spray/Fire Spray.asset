@@ -24,6 +24,8 @@ MonoBehaviour:
   targetingStrategy: {fileID: 11400000, guid: 4a2f4d88cf9f6204e91aec576117470d, type: 2}
   filterStrategies: []
   effectStrategies:
-  - {fileID: 11400000, guid: 18be6bc9a3d8ddd4ea227e0ba565b303, type: 2}
-  cooldownTime: 5
-  manaCost: 30
+  - {fileID: 11400000, guid: 4fc6b5380702c4647a1fdb889c8466a2, type: 2}
+  - {fileID: 11400000, guid: eaaedee3c7ac6ce48bd3077dd113e2b1, type: 2}
+  - {fileID: 11400000, guid: 81002107af3a6f84c8aa596ef3763abf, type: 2}
+  cooldownTime: 0.7
+  manaCost: 1
