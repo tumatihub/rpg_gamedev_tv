@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ccbc794d71599cd4d83a271ab8df687f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -521,6 +521,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &456430799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6214887245066951178, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+  m_PrefabInstance: {fileID: 7460244523891886186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99db75dadd70cb74a96f1c7666cc8fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &651492398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1596,34 @@ PrefabInstance:
     - target: {fileID: 5747150771261805996, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -65.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 456430799}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RPG.UI.MainMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185144547186513497, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6363591693247240588, guid: ef355e9a0c6c5d643b5d7940b8fb690f, type: 3}
       propertyPath: m_AnchorMax.y
