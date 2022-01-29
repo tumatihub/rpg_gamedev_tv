@@ -15,7 +15,7 @@ namespace RPG.Attributes
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] UnityEvent<float> takeDamage;
-        [SerializeField] UnityEvent onDie;
+        public UnityEvent onDie;
 
         LazyValue<float> healthPoints;
 
