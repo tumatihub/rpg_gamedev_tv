@@ -6,6 +6,7 @@ using RPG.Core;
 using RPG.Movement;
 using RPG.Attributes;
 using GameDevTV.Utils;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -45,6 +46,17 @@ namespace RPG.Control
             guardPosition = new LazyValue<Vector3>(GetGuardPosition);
             mover = GetComponent<Mover>();
             actionScheduler = GetComponent<ActionScheduler>();
+            guardPosition.ForceInit();
+        }
+
+        public void Reset()
+        {
+            NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.Warp(guardPosition.value);
+            timeSinceLastSawPlayer = Mathf.Infinity;
+            timeSinceArrivedAtWaypoint = Mathf.Infinity;
+            timeSinceAggrevated = Mathf.Infinity;
+            currentWaypointIndex = 0;
         }
 
         Vector3 GetGuardPosition()
