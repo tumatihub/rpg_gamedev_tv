@@ -19,8 +19,8 @@ namespace RPG.Attributes
 
         LazyValue<float> healthPoints;
 
-        bool isDead = false;
-        public bool IsDead => isDead;
+        bool wasDeadLastFrame = false;
+        public bool IsDead => healthPoints.value <= 0;
         public float HealthPoints => healthPoints.value;
 
         Animator animator;
@@ -41,6 +41,7 @@ namespace RPG.Attributes
         public void Heal(float healthToRestore)
         {
             healthPoints.value = Mathf.Min(healthPoints.value + healthToRestore, GetMaxHealthPoints());
+            UpdateState();
         }
 
         float GetInitialHealth()
@@ -63,12 +64,12 @@ namespace RPG.Attributes
             healthPoints.value = Mathf.Max(0, healthPoints.value - damage);
             takeDamage.Invoke(damage);
 
-            if (healthPoints.value == 0)
+            if (IsDead)
             {
                 onDie.Invoke();
-                Die();
                 AwardExperience(instigator);
             }
+            UpdateState();
         }
 
         public float GetPercentage()
@@ -86,14 +87,22 @@ namespace RPG.Attributes
             return baseStats.GetStat(Stat.Health);
         }
 
-        private void Die()
+        private void UpdateState()
         {
-            if (isDead) return;
+            if (!wasDeadLastFrame && IsDead)
+            {
+                animator.SetTrigger("die");
+                GetComponent<Collider>().enabled = false;
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+            }
 
-            isDead = true;
-            animator.SetTrigger("die");
-            GetComponent<Collider>().enabled = false;
-            GetComponent<ActionScheduler>().CancelCurrentAction();
+            if (wasDeadLastFrame && !IsDead)
+            {
+                animator.Rebind();
+                GetComponent<Collider>().enabled = true;
+            }
+
+            wasDeadLastFrame = IsDead;
         }
 
         void AwardExperience(GameObject instigator)
@@ -117,11 +126,7 @@ namespace RPG.Attributes
         public void RestoreState(object state)
         {
             healthPoints.value = (float)state;
-
-            if (healthPoints.value == 0)
-            {
-                Die();
-            }
+            UpdateState();
         }
     }
 }

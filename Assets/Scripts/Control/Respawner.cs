@@ -32,8 +32,8 @@ namespace RPG.Control
             yield return new WaitForSeconds(respawnDelay);
             Fader fader = FindObjectOfType<Fader>();
             yield return fader.FadeOut(fadeTime);
-            GetComponent<NavMeshAgent>().Warp(respawnLocation.position);
             health.Heal(health.GetMaxHealthPoints() * healthRegenPercentage / 100);
+            GetComponent<NavMeshAgent>().Warp(respawnLocation.position);
             yield return fader.FadeIn(fadeTime);
 
         }
