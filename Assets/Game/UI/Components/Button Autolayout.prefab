@@ -15,8 +15,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 35
+    m_Bottom: 35
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -35,7 +35,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3684425457151145846, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: Button Autolayout
       objectReference: {fileID: 0}
     - target: {fileID: 7211995016839746280, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -95,11 +95,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7771733876023146698, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 228.47
       objectReference: {fileID: 0}
     - target: {fileID: 7771733876023146698, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 120.93
       objectReference: {fileID: 0}
     - target: {fileID: 7771733876023146698, guid: 9f70fe4ef4c02d14daf5dc4eac55c88a, type: 3}
       propertyPath: m_LocalPosition.x

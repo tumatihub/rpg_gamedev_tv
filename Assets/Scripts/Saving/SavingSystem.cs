@@ -60,7 +60,18 @@ namespace GameDevTV.Saving
         public bool SaveFileExists(string saveFile)
         {
             string path = GetPathFromSaveFile(saveFile);
-            return (!File.Exists(path));
+            return (File.Exists(path));
+        }
+
+        public IEnumerable<string> ListSaves()
+        {
+            foreach (string path in Directory.EnumerateFiles(Application.persistentDataPath))
+            {
+                if (Path.GetExtension(path) == ".sav")
+                {
+                    yield return Path.GetFileNameWithoutExtension(path);
+                }
+            }
         }
 
         // PRIVATE
