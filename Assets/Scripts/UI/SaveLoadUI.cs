@@ -13,12 +13,13 @@ namespace RPG.UI
 
         void OnEnable()
         {
+            var savingWrapper = FindObjectOfType<SavingWrapper>();
+            if (savingWrapper == null) return;
+
             foreach (Transform child in contentRoot)
             {
                 Destroy(child.gameObject);
             }
-
-            var savingWrapper = FindObjectOfType<SavingWrapper>();
 
             foreach (string save in savingWrapper.ListSaves())
             {
