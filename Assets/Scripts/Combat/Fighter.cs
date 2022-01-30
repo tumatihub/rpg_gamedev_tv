@@ -17,7 +17,7 @@ namespace RPG.Combat
     [RequireComponent(typeof(ActionScheduler))]
     [RequireComponent(typeof(Mover))]
     [RequireComponent(typeof(Animator))]
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -215,6 +215,12 @@ namespace RPG.Combat
             if (target == null) return;
 
             float damage = baseStats.GetStat(Stat.Damage);
+            BaseStats targetBaseStats = target.GetComponent<BaseStats>();
+            if (targetBaseStats != null)
+            {
+                float defence = targetBaseStats.GetStat(Stat.Defence);
+                damage /= 1 + defence / damage;
+            }
 
             if (currentWeapon.value != null)
             {
@@ -235,18 +241,6 @@ namespace RPG.Combat
         void Shoot()
         {
             Hit();
-        }
-
-        public object CaptureState()
-        {
-            return currentWeaponConfig.name;
-        }
-
-        public void RestoreState(object state)
-        {
-            string weaponName = (string)state;
-            WeaponConfig weapon = Resources.Load<WeaponConfig>(weaponName);
-            EquipWeapon(weapon);
         }
 
     }

@@ -759,6 +759,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d66c89601ce96d4419ce36a4dce3c401, type: 3}
+--- !u!1001 &162577784
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 170214353}
+    m_Modifications:
+    - target: {fileID: 3350911117403032875, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: uniqueIdentifier
+      value: e67edb2f-df17-44b8-95af-e22d63872b30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520606463827343342, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_Name
+      value: Wooden Shield Pickup Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073913951663969058, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 86b751e9bd2204042a3ab88fd76ecd71, type: 2}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.592743
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.978436
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+--- !u!4 &162577785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+  m_PrefabInstance: {fileID: 162577784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170214352
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +860,7 @@ Transform:
   - {fileID: 1839753859}
   - {fileID: 1771928359}
   - {fileID: 757129868}
+  - {fileID: 162577785}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
