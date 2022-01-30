@@ -23,6 +23,7 @@ namespace RPG.Combat
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
+        [SerializeField] float autoAttackRange = 4f;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -66,7 +67,11 @@ namespace RPG.Combat
 
             if (target == null) return;
 
-            if (target.IsDead) return;
+            if (target.IsDead)
+            {
+                target = FindNewTargetInRange();
+                if (target == null) return;
+            }
 
             if (!IsInRange(target.transform))
             {
@@ -83,6 +88,36 @@ namespace RPG.Combat
         {
             currentWeaponConfig = weapon;
             currentWeapon.value = AttachWeapon(weapon);
+        }
+
+        Health FindNewTargetInRange()
+        {
+            Health best = null;
+            float bestDistance = Mathf.Infinity;
+            foreach (var candidate in FindAllTargetsInRange())
+            {
+                float candidateDistance = Vector3.Distance(transform.position, candidate.transform.position);
+                if (candidateDistance < bestDistance)
+                {
+                    best = candidate;
+                    bestDistance = candidateDistance;
+                }
+            }
+            return best;
+        }
+
+        IEnumerable<Health> FindAllTargetsInRange()
+        {
+            RaycastHit[] raycastHits = Physics.SphereCastAll(transform.position, autoAttackRange, Vector3.up, 0);
+            foreach (var hit in raycastHits)
+            {
+                Health health = hit.transform.GetComponent<Health>();
+                if (health == null) continue;
+                if (health.IsDead) continue;
+                if (health.gameObject == gameObject) continue;
+
+                yield return health;
+            }
         }
 
         void UpdateWeapon()
