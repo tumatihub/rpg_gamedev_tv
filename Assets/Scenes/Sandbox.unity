@@ -772,12 +772,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5520606463827343342, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
       propertyPath: m_Name
-      value: Wooden Shield Pickup Spawner
+      value: Gold Pickup Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 6073913951663969058, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 86b751e9bd2204042a3ab88fd76ecd71, type: 2}
+      objectReference: {fileID: 11400000, guid: 594ea47b58a27854ba6beb5b8ced40a7, type: 2}
+    - target: {fileID: 6073913951663969058, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
+      propertyPath: number
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7625948046768443461, guid: 3fac26eeedbf34441be72ae89da5e019, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6743,7 +6747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653884540797706367, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -520.75
+      value: -520.74994
       objectReference: {fileID: 0}
     - target: {fileID: 5654262807253678399, guid: a201022477da321469e72af44c8a4c4c, type: 3}
       propertyPath: m_AnchorMax.x
