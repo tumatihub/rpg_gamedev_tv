@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
+using GameDevTV.Utils;
 
 namespace RPG.Quests
 {
